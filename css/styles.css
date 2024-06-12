@@ -6,9 +6,11 @@
   list-style: none;
 }
 
-.gallery-image:hover,
-.gallery-image:focus,
-.gallery-image:active {
+.gallery-image:hover {
   transform: scale(1.04);
   transition: transform 0.3s ease;
 }
+
+.modal .basicLightbox__placeholder {
+    background: rgba(46, 47, 66, 0.8);
+  }

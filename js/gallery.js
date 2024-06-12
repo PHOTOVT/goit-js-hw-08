@@ -102,9 +102,9 @@ document.querySelector('.gallery').addEventListener('click', e => {
   e.preventDefault();
   if (e.target.tagName === 'IMG') {
     const originalImage = e.target.getAttribute('data-source');
-    const instance = basicLightbox.create(`
-        <img src="${originalImage}">
-      `);
+    const instance = basicLightbox.create(`<img src="${originalImage}">`, {
+      className: 'modal',
+    });
     instance.show();
   }
 });
