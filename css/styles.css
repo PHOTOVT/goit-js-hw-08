@@ -1,0 +1,14 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  list-style: none;
+}
+
+.gallery-image:hover,
+.gallery-image:focus,
+.gallery-image:active {
+  transform: scale(1.04);
+  transition: transform 0.3s ease;
+}
