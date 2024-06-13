@@ -64,21 +64,7 @@ const images = [
   },
 ];
 
-const elements = document.querySelectorAll('.gallery-image');
-const elementsEvent = elements.forEach(image => {
-  image.addEventListener('click', event => {
-    event.preventDefault();
-  });
-});
-
 const gallery = document.querySelector('ul.gallery');
-const galleryEvent = gallery.addEventListener('click', function (event) {
-  event.preventDefault();
-  if (event.target.tagName === 'IMG') {
-    const originalImageSrc = event.target.getAttribute('data-source');
-    console.log(originalImageSrc);
-  }
-});
 
 function imageTemplate({ preview, original, description }) {
   return `<li class="gallery-item><a class="gallery-link" href="${original}"><img
@@ -96,15 +82,20 @@ function imagesTemplate(array) {
 
 const markup = imagesTemplate(images);
 const insert = gallery.insertAdjacentHTML('afterbegin', markup);
-console.log(insert);
 
-document.querySelector('.gallery').addEventListener('click', e => {
+gallery.addEventListener('click', e => {
   e.preventDefault();
   if (e.target.tagName === 'IMG') {
-    const originalImage = e.target.getAttribute('data-source');
-    const instance = basicLightbox.create(`<img src="${originalImage}">`, {
-      className: 'modal',
-    });
+    const originalImageSrc = e.target.getAttribute('data-source');
+    console.log(originalImageSrc);
+    const instance = basicLightbox.create(
+      `
+      <img src="${originalImageSrc}">
+    `,
+      {
+        className: 'modal',
+      },
+    );
     instance.show();
   }
 });
