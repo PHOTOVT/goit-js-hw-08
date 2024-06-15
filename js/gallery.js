@@ -64,8 +64,6 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector('ul.gallery');
-
 function imageTemplate({ preview, original, description }) {
   return `<li class="gallery-item><a class="gallery-link" href="${original}"><img
 class="gallery-image"
@@ -83,6 +81,7 @@ function imagesTemplate(array) {
 const markup = imagesTemplate(images);
 const insert = gallery.insertAdjacentHTML('afterbegin', markup);
 
+const gallery = document.querySelector('ul.gallery');
 gallery.addEventListener('click', e => {
   e.preventDefault();
   if (e.target.tagName === 'IMG') {
